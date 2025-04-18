@@ -1,12 +1,20 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import loupe from "../assets/search.svg";
 
-export default function Search() {
+export default function Search({ onSearch }) {
 	const [search, setSearch] = useState("");
 
 	const handleSearchChange = (event) => {
-		setSearch(event.target.value);
+		const newValue = event.target.value;
+		setSearch(newValue);
+
+		// Envoyer la valeur au composant parent
+		if (onSearch) {
+			onSearch(newValue);
+		}
 	};
+
 	return (
 		<div className="mb-4 row">
 			<div className="search position-relative">

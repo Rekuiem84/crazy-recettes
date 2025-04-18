@@ -349,7 +349,6 @@ h6 {
 	overflow: hidden;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
-	white-space: nowrap;
 }
 
 .card-ingredients-list-item-ingredient {
@@ -632,15 +631,21 @@ h6 {
 .recettes-list {
 	margin-top: 2rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: repeat(3, 1fr);
 	align-items: stretch;
 	gap: 2rem;
+
+	& > a {
+		padding-inline: 0;
+		background: lightgray;
+		cursor: pointer;
+	}
 }
 .recette {
 	margin-top: 0;
 	cursor: pointer;
-	background: lightgray;
 	padding: 0;
+	color: black;
 	.img-cont {
 		display: flex;
 	}
@@ -650,8 +655,11 @@ h6 {
 	.title {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
 		.name {
 			font-size: 1.25rem;
+			margin-bottom: 0;
 		}
 
 		.time {
@@ -660,6 +668,7 @@ h6 {
 			gap: 0.5rem;
 			p {
 				margin-bottom: 0;
+				text-wrap: nowrap;
 			}
 		}
 		img {
@@ -687,17 +696,19 @@ h6 {
 		overflow: hidden;
 	}
 }
-.dropdowns-cont {
+.dropdown-wrapper {
 	display: flex;
 	align-items: start;
 	gap: 2rem;
 }
 .dropdown {
+	position: relative;
 	flex: 1;
 	border-radius: 0.5rem;
 	height: auto;
+
 	&:nth-child(1) {
-		flex: 2;
+		/* flex: 2; */
 	}
 
 	&#ingredients {
@@ -717,6 +728,7 @@ h6 {
 	}
 	.title {
 		margin-bottom: 0;
+		cursor: pointer;
 	}
 	.content {
 		display: grid;
@@ -724,5 +736,47 @@ h6 {
 	}
 	.item:hover {
 		background-color: #0000004c;
+	}
+	.dropdown-list {
+		position: absolute;
+		top: calc(100% + 1rem);
+		background-color: inherit;
+		z-index: 3;
+		width: 100%;
+		border-radius: inherit;
+
+		ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			padding-left: 0;
+		}
+		.dropdown-item {
+			white-space: initial;
+			cursor: copy;
+			color: white;
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.2);
+			}
+		}
+	}
+}
+.page-recette a {
+	background-color: #d04f4f;
+	color: white;
+}
+.tags-cont {
+	.tags[data-type="ingredient"] {
+		background-color: #3282f7;
+	}
+	.tags[data-type="appareil"] {
+		background-color: #68d9a4;
+	}
+	.tags[data-type="ustensile"] {
+		background-color: #ed6454;
+	}
+	.tags {
+		button {
+			cursor: pointer;
+		}
 	}
 }

@@ -15,6 +15,7 @@ function MaRecette() {
 				Retour à l'accueil
 			</Link>
 			<h1 className="mb-3">{recette.name}</h1>
+			<img src="https://picsum.photos/1600/600" alt="" />
 			<p>
 				<strong>Nombre de personnes :</strong> {recette.servings}
 			</p>
