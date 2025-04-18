@@ -79,3 +79,12 @@ export default function RecettesList({ searchTerm, selectedTags = [] }) {
 		</div>
 	);
 }
+RecettesList.propTypes = {
+	searchTerm: PropTypes.string,
+	selectedTags: PropTypes.arrayOf(
+		PropTypes.shape({
+			type: PropTypes.oneOf(["ingredient", "appareil", "ustensile"]).isRequired,
+			value: PropTypes.string.isRequired,
+		})
+	),
+};

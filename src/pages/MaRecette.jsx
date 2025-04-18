@@ -6,12 +6,19 @@ function MaRecette() {
 	const recette = recipes.find((r) => r.id === parseInt(id));
 
 	if (!recette) {
-		return <p>Recette introuvable</p>;
+		return (
+			<div>
+				<Link to="/" className="btn mb-3 back-to-home">
+					Retour à l'accueil
+				</Link>
+				<p>Recette introuvable</p>
+			</div>
+		);
 	}
 
 	return (
 		<div className="container mt-5 page-recette">
-			<Link to="/" className="btn mb-3">
+			<Link to="/" className="btn mb-3 back-to-home">
 				Retour à l'accueil
 			</Link>
 			<h1 className="mb-3">{recette.name}</h1>

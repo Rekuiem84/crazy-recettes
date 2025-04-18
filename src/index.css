@@ -760,7 +760,7 @@ h6 {
 		}
 	}
 }
-.page-recette a {
+.back-to-home {
 	background-color: #d04f4f;
 	color: white;
 }
@@ -779,4 +779,12 @@ h6 {
 			cursor: pointer;
 		}
 	}
+}
+.error-page {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 2rem;
 }

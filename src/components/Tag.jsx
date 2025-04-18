@@ -1,5 +1,6 @@
 import React from "react";
 import close from "../assets/tag-close.svg";
+import PropTypes from "prop-types";
 
 function Tag({ name, type, onRemove }) {
 	return (
@@ -19,5 +20,11 @@ function Tag({ name, type, onRemove }) {
 		</div>
 	);
 }
+
+Tag.propTypes = {
+	name: PropTypes.string.isRequired,
+	type: PropTypes.oneOf(["ingredient", "appareil", "ustensile"]),
+	onRemove: PropTypes.func.isRequired,
+};
 
 export default Tag;

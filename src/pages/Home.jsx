@@ -18,7 +18,7 @@ function Home() {
 	return (
 		<>
 			<Search onSearch={handleSearch} />
-			<Filters onTagsChange={handleTagsChange} />
+			<Filters onTagsChange={handleTagsChange} searchTerm={searchTerm} />
 			<RecettesList searchTerm={searchTerm} selectedTags={selectedTags} />
 		</>
 	);
